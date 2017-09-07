@@ -1,9 +1,3 @@
-<?php
-$query = $pdo->prepare('SELECT * FROM blog_posts ORDER BY id DESC');
-$query->execute();
-
-$blogPosts = $query->fetchAll(PDO::FETCH_ASSOC);
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +13,9 @@ $blogPosts = $query->fetchAll(PDO::FETCH_ASSOC);
 		<div class="row">
 			<div class="col-md-8">
 				<h2>Posts</h2>
-				<a class="btn btn-primary" href="insert-post.php">New Post</a>
+				<p>
+					<a class="btn btn-primary" href="<?php echo BASE_URL; ?>admin/posts/create">New Post</a>
+				</p>
 				<table class="table">
 					<tr>
 						<th>Title</th>
@@ -45,7 +41,7 @@ $blogPosts = $query->fetchAll(PDO::FETCH_ASSOC);
 			<div class="col-md-12">
 				<footer>
 					This is a footer<br>
-					<a href="admin/index.php">Admin Panel</a>
+					<a href="<?php echo BASE_URL; ?>admin">Admin Panel</a>
 				</footer>
 			</div>
 		</div>
