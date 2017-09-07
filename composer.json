@@ -1,4 +1,7 @@
 {
 	"autoload": {},
-	"requiere": {}
+	"requiere": {},
+	"require": {
+		"phroute/phroute": "^2.1"
+	}
 }
