@@ -1,0 +1,1 @@
+This a Platzi PHP exercise :)
