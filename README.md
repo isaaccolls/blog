@@ -1,1 +1,1 @@
-This a Platzi PHP exercise :)
+This a PHP exercise from Platzi :)
