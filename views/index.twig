@@ -12,21 +12,18 @@
 		</div>
 		<div class="row">
 			<div class="col-md-8">
-				<?php
-				foreach($blogPosts as $blogPost) {
-					echo '<div class="blog-post">';
-					echo '<h2>'.$blogPost['title'].'</h2>';
-					echo '<p>Jan 1, 2020 by <a href="">Alex</a></p>';
-					echo '<div class="blog-post-image">';
-					echo '<img src="images/Simpsons_FamilyPicture.png" alt="imagen">';
-					echo '</div>';
-					echo '<div class="blog-post-content">';
-					echo $blogPost['content'];
-					echo '</div>';
-					echo '</div>';
-
-				}
-				?>
+				{% for blogPost in blogPosts %}
+					<div class="blog-post">
+						<h2>{{ blogPost.title }}</h2>
+						<p>Jan 1, 2020 by <a href="">Alex</a></p>
+						<div class="blog-post-image">
+							<img src="images/Simpsons_FamilyPicture.png" alt="imagen">	
+						</div>
+						<div class="blog-post-content">
+							{{ blogPost.content }}
+						</div>
+					</div>
+				{% endfor %}
 			</div>
 			<div class="col-md-4">
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
