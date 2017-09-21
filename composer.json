@@ -1,6 +1,9 @@
 {
-	"autoload": {},
-	"requiere": {},
+	"autoload": {
+		"psr-4": {
+			"App\\": "app/"
+		}
+	},
 	"require": {
 		"phroute/phroute": "^2.1"
 	}
