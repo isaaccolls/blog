@@ -34,6 +34,7 @@ use Phroute\Phroute\RouteCollector;
 
 $router = new RouteCollector();
 
+$router->controller('/auth', App\Controllers\AuthController::class);
 $router->controller('/admin', App\Controllers\admin\IndexController::class);
 $router->controller('/admin/posts', App\Controllers\admin\PostController::class);
 $router->controller('/admin/users', App\Controllers\admin\UserController::class);
