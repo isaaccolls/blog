@@ -36,11 +36,21 @@ use Phroute\Phroute\RouteCollector;
 
 $router = new RouteCollector();
 
+$router->filter('auth', function(){
+	if(!isset($_SESSION['userID'])){
+		header('Location: ' . BASE_URL . 'auth/login');
+		return false;
+	}
+});
+
 $router->controller('/auth', App\Controllers\AuthController::class);
-$router->controller('/admin', App\Controllers\admin\IndexController::class);
-$router->controller('/admin/posts', App\Controllers\admin\PostController::class);
-$router->controller('/admin/users', App\Controllers\admin\UserController::class);
-$router->controller('/', App\Controllers\IndexController::class);
+
+$router->group(['before'=>'auth'], function($router){
+	$router->controller('/admin', App\Controllers\admin\IndexController::class);
+	$router->controller('/admin/posts', App\Controllers\admin\PostController::class);
+	$router->controller('/admin/users', App\Controllers\admin\UserController::class);
+	$router->controller('/', App\Controllers\IndexController::class);
+});
 
 $dispatcher = new Phroute\Phroute\Dispatcher($router->getData());
 $response = $dispatcher->dispatch($_SERVER['REQUEST_METHOD'], $route);
